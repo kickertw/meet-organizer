@@ -3,22 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TestComponent from './components/TestComponent/TestComponent';
-import TestComponent2 from './components/TestComponent2/TestComponent2';
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  // <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="test" element={<TestComponent />}></Route>
-        <Route path="test2" element={<TestComponent2 />}></Route>
-      </Routes>      
-    </BrowserRouter>,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
