@@ -6,8 +6,10 @@ const LoginView = () => {
   const [pass, setPass] = useState('');
 
   const checkPass = (e) => {
-    if (pass == 'test') {
-        alert('Got it');
+    if (pass === process.env.REACT_APP_ADMIN_PASS) {
+        alert('Admin');
+    } else if (pass === process.env.REACT_APP_READ_ONLY_PASS) {
+        alert('Read Only');
     } else {
         alert('❌❌❌');
     }
@@ -21,7 +23,7 @@ const LoginView = () => {
             onChange={(e) => setPass(e.target.value)}
             aria-label="password"
         />
-        <Button variant="primary" onClick={checkPass} >Go</Button>
+        <Button variant="primary" onClick={checkPass}>Go</Button>
     </div>
   );
 };
