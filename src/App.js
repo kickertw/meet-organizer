@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LoginView from './views/login';
-import EventTable from './components/event-table';
+import EventTable from './components/results-table';
 import { Button } from 'react-bootstrap';
 // import { Link, Switch } from 'react-router-dom';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -34,16 +34,11 @@ function App() {
     if (!isAuth) {
         return (<LoginView updateLoginCallback={updateLogin} />);
     } else {
+        const eventHeaders = ['Name', 'Age', 'Event', 'Session', 'Time'];
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <Button variant='secondary' onClick={logout} >Logout</Button>
-                </header>
-                <EventTable />
+                <EventTable headers={eventHeaders} />
+                <Button variant='secondary' onClick={logout} >Logout</Button>
             </div>
         );
     }

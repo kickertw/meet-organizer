@@ -17,11 +17,6 @@ const LoginView = ({updateLoginCallback}) => {
         }
     };
 
-    const clearStorage = () => {
-        localStorage.removeItem('Password');
-        updateLoginCallback(false);
-    }
-
     return (
         <div className={styles.LoginContainer}>
             <div className={styles.LoginForm} data-testid="LoginView">
@@ -34,8 +29,6 @@ const LoginView = ({updateLoginCallback}) => {
                     aria-label="password"
                 />
                 <Button variant="primary" onClick={checkPass} className={styles.inputs}>Go</Button>
-                <Button variant="secondary" onClick={clearStorage} className={styles.inputs}>Clear</Button>
-                <p>{localStorage.getItem('Password')}</p>
             </div>
         </div>
     );
