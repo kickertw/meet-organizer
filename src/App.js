@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LoginView from './views/login';
-import EventTable from './components/results-table';
 import { Button } from 'react-bootstrap';
+import EventSchedule from './views/event-schedule';
 // import { Link, Switch } from 'react-router-dom';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
@@ -20,7 +20,7 @@ function App() {
     const updateLogin = (isLoggedIn, userRole) => {
         setAuth(isLoggedIn);
         if (isLoggedIn) {
-            setRole(userRole);
+            localStorage.setItem('Role', userRole)
         }
     }
 
@@ -37,7 +37,12 @@ function App() {
         const eventHeaders = ['Name', 'Age', 'Event', 'Session', 'Time'];
         return (
             <div className="App">
-                <EventTable headers={eventHeaders} />
+                <header>
+                    I am a ☕
+                </header>
+                <div style={{margin: 4 + 'em'}}>
+                    <EventSchedule />
+                </div>
                 <Button variant='secondary' onClick={logout} >Logout</Button>
             </div>
         );
